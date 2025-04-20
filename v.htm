@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hide on Scroll</title>
+  <style>
+    body {
+      height: 2000px; /* So we can scroll */
+    }
+
+    #myContent {
+      background-color: coral;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      transition: opacity 0.3s ease;
+    }
+
+    .hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="myContent">This content will hide after scrolling 300px</div>
+
+  <script>
+    const content = document.getElementById("myContent");
+    const hideAfter = 300; // Change this value to the pixel distance you want
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY >= hideAfter) {
+        content.classList.add("hidden");
+      } else {
+        content.classList.remove("hidden");
+      }
+    });
+  </script>
+
+</body>
+</html>
